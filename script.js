@@ -1,10 +1,13 @@
 let textoCarta = document.getElementById('carta-texto');
 const buttonCreate = document.getElementById('criar-carta');
 const letter = document.getElementById('carta-gerada');
+let contadorParagrafo = document.getElementById('carta-contador');
 let classeEstilo = ['newspaper', 'magazine1', 'magazine2'];
 let classeTamanho = ['medium', 'big', 'reallybig'];
 let classeRotacao = ['rotateleft', 'rotateright'];
 let classeInclinacao = ['skewleft', 'skewright'];
+
+
 
 function createLetter(){
     letter.innerHTML = '';
@@ -27,9 +30,15 @@ function createLetter(){
         word.classList.add(estilo, tamanho, rotacao, inclinacao);
         letter.appendChild(word); 
         }
+
+        let contador = document.getElementById('carta-gerada').children.length;
+        contadorParagrafo.innerText = contador;
+
     }
 }
 
 buttonCreate.addEventListener('click', createLetter);
+
+
 
 
