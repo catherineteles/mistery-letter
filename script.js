@@ -8,6 +8,16 @@ let classeRotacao = ['rotateleft', 'rotateright'];
 let classeInclinacao = ['skewleft', 'skewright'];
 
 
+function changeClass(event){
+    let estilo = classeEstilo[Math.floor(Math.random() * 4)];
+    let tamanho = classeTamanho[Math.floor(Math.random() * 4)];
+    let rotacao = classeRotacao[Math.floor(Math.random() * 3)];
+    let inclinacao = classeInclinacao[Math.floor(Math.random() * 3)];
+    event.target.className = '';
+    event.target.classList.add(estilo, tamanho, rotacao, inclinacao);
+}
+
+
 
 function createLetter(){
     letter.innerHTML = '';
@@ -28,6 +38,7 @@ function createLetter(){
         let inclinacao = classeInclinacao[Math.floor(Math.random() * 3)];
         word.innerText = wordList[index];
         word.classList.add(estilo, tamanho, rotacao, inclinacao);
+        word.addEventListener('click', changeClass)
         letter.appendChild(word); 
         }
 
